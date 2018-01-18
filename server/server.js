@@ -32,7 +32,7 @@ app.register(pov, {
     engine: {
         handlebars: hbs
     },
-    templates: '../views',
+    templates: 'views',
     options: {}
 })
 app.register([

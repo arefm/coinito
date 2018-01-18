@@ -21,7 +21,8 @@
     "fastify-helmet": "^1.0.2",
     "fastify-static": "^0.6.0",
     "hbs": "^4.0.1",
-    "point-of-view": "^0.6.0"
+    "point-of-view": "^0.6.0",
+    "request": "^2.83.0"
   },
   "devDependencies": {
     "debug": "^3.1.0",

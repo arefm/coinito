@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>List | Coinito</title>
+    <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/stylesheets/list.css" />
+</head>
+
+<body>
+    <div class="container-fluid">
+        <h1>List</h1>
+        <table class="border border-secondary">
+            <thead>
+                <tr class="border border-secondary">
+                    <td class="border border-secondary">Rank</td>
+                    <td class="border border-secondary">Coin</td>
+                    <td class="border border-secondary">Market Cap</td>
+                    <td class="border border-secondary">Price (USD)</td>
+                    <td class="border border-secondary">Price (BTC)</td>
+                    <td class="border border-secondary">Change (1h)</td>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each list}}
+                <tr class="border border-secondary">
+                    <td class="border border-secondary">{{rank}}</td>
+                    <td class="border border-secondary">{{symbol}} - {{name}}</td>
+                    <td class="border border-secondary">{{market_cap_usd}}$</td>
+                    <td class="border border-secondary">{{price_usd}}$</td>
+                    <td class="border border-secondary">{{price_btc}} BTC</td>
+                    <td class="border border-secondary">{{percent_change_1h}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

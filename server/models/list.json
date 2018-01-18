@@ -3,7 +3,8 @@
     "methods": {
     	"List": {
 	        "path": "/",
-	        "method": "get"
+	        "method": "get",
+	        "before": [ "FetchList" ]
     	}
     }
 }
