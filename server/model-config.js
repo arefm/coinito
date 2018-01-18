@@ -3,5 +3,5 @@
  */
 
 module.exports = {
-	"App": "/app"
+	"List": "/list"
 }

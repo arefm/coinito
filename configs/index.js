@@ -4,7 +4,7 @@
 
 const env = process.env.NODE_ENV || 'production'
 
-const server = Object.assign({}, { env: env }, require(`./server.${env}`))
+const configs = require(`./server.development.json`)
 const messages = require('./messages')
 
-export { server, messages }
+export { configs, messages }
