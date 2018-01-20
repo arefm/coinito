@@ -34,6 +34,7 @@ hbs.registerHelper('split_price', (value, opts) => {
             }
         })
         val = val.reverse().join('')
+        val = String(val + (value - parseInt(value)).toFixed(3))
         value = val.charAt(0) === ',' ? val.substr(1) : val
     }
     return value

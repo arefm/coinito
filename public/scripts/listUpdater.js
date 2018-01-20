@@ -27,6 +27,7 @@ var split_price = function(value) {
             }
         })
         val = val.reverse().join('')
+        val = String(val + (value - parseInt(value)).toFixed(3))
         value = val.charAt(0) === ',' ? val.substr(1) : val
     }
     return value
@@ -34,18 +35,45 @@ var split_price = function(value) {
 
 setTimeout(function() {
     var url = '/list?json'
+    var cached = {}
+    var cachedItm = {};
+    var updStyle = 'upd_default'
+    var val;
     setInterval(function() {
         var elm;
         var symbol;
         var needSplit = ['market_cap_usd', 'price_usd']
+        var isPercent = false
         httpGetAsync(url, function(data) {
             data = JSON.parse(data).list
             data.forEach(coinBlock => {
                 symbol = coinBlock.symbol
                 Object.keys(coinBlock).forEach(key => {
+                	if (Object.keys(cached).indexOf(symbol + '-' + key) > -1) {
+                		cachedItm = cached[symbol + '-' + key]
+                		console.log('cachedItm', cachedItm.value > coinBlock[key])
+                		switch (true) {
+                			case cachedItm.value > coinBlock[key]:
+                				cachedItm.change = 'upd_dec'
+                				console.log('dec')
+                			break
+                			case cachedItm.value < coinBlock[key]:
+                				cachedItm.change = 'upd_inc'
+                				console.log('inc')
+                			break
+                		}
+                	} else {
+                		cached[symbol + '-' + key] = { value: coinBlock[key], change: 'upd_def' }
+                		cachedItm = cached[symbol + '-' + key]
+                		// console.log('def')
+                	}
                     elm = document.getElementById(symbol + '-' + key)
-                    if (elm)
-                        elm.innerText = needSplit.indexOf(key) !== -1 ? split_price(coinBlock[key]) : coinBlock[key]
+                    isPercent = new RegExp('^percent_change.+').test(key)
+                    if (elm) {
+                    	val = needSplit.indexOf(key) !== -1 ? split_price(coinBlock[key]) : coinBlock[key]
+                    	elm.className = 'border border-secondary ' + cachedItm.change
+                        elm.innerText = isPercent ? val + '%' : val
+                    }
                 })
             })
             console.log('list updated at ' + Date.now())

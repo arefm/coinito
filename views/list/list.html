@@ -27,14 +27,14 @@
             <tbody>
                 {{#each list}}
                 <tr class="border border-secondary">
-                    <td class="border border-secondary" id="{{symbol}}-rank">{{rank}}</td>
+                    <td class="border border-secondary upd_def" id="{{symbol}}-rank">{{rank}}</td>
                     <td class="border border-secondary align-left"><span class="badge">{{symbol}}</span> {{name}}</td>
-                    <td class="border border-secondary" id="{{symbol}}-market_cap_usd">{{split_price market_cap_usd}}</td>
-                    <td class="border border-secondary" id="{{symbol}}-price_usd">{{split_price price_usd}}</td>
-                    <td class="border border-secondary" id="{{symbol}}-price_btc">{{price_btc}}</td>
-                    <td class="border border-secondary" id="{{symbol}}-percent_change_1h">{{percent_change_1h}}%</td>
-                    <td class="border border-secondary" id="{{symbol}}-percent_change_24h">{{percent_change_24h}}%</td>
-                    <td class="border border-secondary" id="{{symbol}}-percent_change_7d">{{percent_change_7d}}%</td>
+                    <td class="border border-secondary upd_def" id="{{symbol}}-market_cap_usd">{{split_price market_cap_usd}}</td>
+                    <td class="border border-secondary upd_def" id="{{symbol}}-price_usd">{{split_price price_usd}}</td>
+                    <td class="border border-secondary upd_def" id="{{symbol}}-price_btc">{{price_btc}}</td>
+                    <td class="border border-secondary upd_def" id="{{symbol}}-percent_change_1h">{{percent_change_1h}}%</td>
+                    <td class="border border-secondary upd_def" id="{{symbol}}-percent_change_24h">{{percent_change_24h}}%</td>
+                    <td class="border border-secondary upd_def" id="{{symbol}}-percent_change_7d">{{percent_change_7d}}%</td>
                 </tr>
                 {{/each}}
             </tbody>
