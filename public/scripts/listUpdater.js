@@ -3,7 +3,7 @@
 var httpGetAsync = function(theUrl, callback) {
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+        if (xmlHttp.readyState === 4 && xmlHttp.status === 200)
             callback(xmlHttp.responseText);
     }
     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
@@ -35,8 +35,6 @@ var split_price = function(value) {
 setTimeout(function() {
     var url = '/list?json'
     setInterval(function() {
-        // var source = document.getElementById('listContainer')
-        // var template = Handlebars.compile(String(source.innerHTML))
         var elm;
         var symbol;
         var needSplit = ['market_cap_usd', 'price_usd']
