@@ -17,6 +17,28 @@ import middlewares from './middlewares'
 const env = ['development', 'production'].indexOf(process.env.NODE_ENV) > -1 ? process.env.NODE_ENV : 'development'
 const app = fastify()
 
+hbs.registerHelper('split_price', (value, opts) => {
+    value = parseFloat(value).toFixed(3)
+    let int = String(parseInt(value))
+    if (int.length > 3) {
+        int = int.split('')
+        int = int.reverse()
+        let val = []
+        let splitter = 0
+        int.forEach(blk => {
+            val.push(blk)
+            splitter++
+            if (splitter > 2) {
+                val.push(',')
+                splitter = 0
+            }
+        })
+        val = val.reverse().join('')
+        value = val.charAt(0) === ',' ? val.substr(1) : val
+    }
+    return value
+})
+
 // Load Middlewares
 middlewares.forEach(middleware => app.use(middleware))
 

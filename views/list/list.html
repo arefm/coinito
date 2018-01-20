@@ -16,26 +16,32 @@
                 <tr class="border border-secondary">
                     <td class="border border-secondary">Rank</td>
                     <td class="border border-secondary">Coin</td>
-                    <td class="border border-secondary">Market Cap</td>
+                    <td class="border border-secondary">Market Cap (USD)</td>
                     <td class="border border-secondary">Price (USD)</td>
                     <td class="border border-secondary">Price (BTC)</td>
                     <td class="border border-secondary">Change (1h)</td>
+                    <td class="border border-secondary">Change (24h)</td>
+                    <td class="border border-secondary">Change (7d)</td>
                 </tr>
             </thead>
             <tbody>
                 {{#each list}}
                 <tr class="border border-secondary">
-                    <td class="border border-secondary">{{rank}}</td>
+                    <td class="border border-secondary" id="{{symbol}}-rank">{{rank}}</td>
                     <td class="border border-secondary align-left"><span class="badge">{{symbol}}</span> {{name}}</td>
-                    <td class="border border-secondary">{{market_cap_usd}}$</td>
-                    <td class="border border-secondary">{{price_usd}}$</td>
-                    <td class="border border-secondary">{{price_btc}} BTC</td>
-                    <td class="border border-secondary">{{percent_change_1h}}%</td>
+                    <td class="border border-secondary" id="{{symbol}}-market_cap_usd">{{split_price market_cap_usd}}</td>
+                    <td class="border border-secondary" id="{{symbol}}-price_usd">{{split_price price_usd}}</td>
+                    <td class="border border-secondary" id="{{symbol}}-price_btc">{{price_btc}}</td>
+                    <td class="border border-secondary" id="{{symbol}}-percent_change_1h">{{percent_change_1h}}%</td>
+                    <td class="border border-secondary" id="{{symbol}}-percent_change_24h">{{percent_change_24h}}%</td>
+                    <td class="border border-secondary" id="{{symbol}}-percent_change_7d">{{percent_change_7d}}%</td>
                 </tr>
                 {{/each}}
             </tbody>
         </table>
     </div>
+    <!-- <script type="text/javascript" src="/public/scripts/handlebars.min-latest.js"></script> -->
+    <script type="text/javascript" src="/public/scripts/listUpdater.js"></script>
 </body>
 
 </html>

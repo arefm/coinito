@@ -18,9 +18,16 @@ class ListHandler {
     }
 
     List(req, reply) {
-        reply.view('/list/list.html', {
-        	list: this.Storage.list
-        })
+        let { json } = req.query
+        if (typeof json === 'undefined') {
+            reply.view('/list/list.html', {
+            	list: this.Storage.list
+            })
+            return
+        }
+        reply
+            .type('application/json')
+            .send({ list: this.Storage.list })
     }
 
     FetchList(req, reply, next) {
