@@ -1,6 +1,8 @@
 
+const middlewaresPath = `${__dirname}/../middlewares`
+
 const middlewares = [
-	require(`${__dirname}/../middlewares/logger`)
+	require(`${middlewaresPath}/logger`)
 ]
 
 export default middlewares

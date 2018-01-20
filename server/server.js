@@ -4,6 +4,7 @@
 
 import fastify from 'fastify'
 import helmet from 'fastify-helmet'
+import compress from 'fastify-compress'
 import { configs, messages } from '../configs'
 import pov from 'point-of-view'
 import stc from 'fastify-static'
@@ -22,6 +23,7 @@ middlewares.forEach(middleware => app.use(middleware))
 app.decorate('configs', configs)
 app.decorate('messages', messages)
 // app.register(Client, configs.db.postgres)
+app.register(compress)
 app.register(helmet)
 // app.register(body)
 app.register(stc, {

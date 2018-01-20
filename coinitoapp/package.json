@@ -1,0 +1,22 @@
+{
+  "name": "coinitoapp",
+  "version": "1.0.0",
+  "description": "coinito app",
+  "main": "lib/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Aref Mirhosseini <code@arefmirhosseini.com> (http://arefmirhosseini.com)",
+  "license": "ISC",
+  "dependencies": {
+    "moment": "^2.20.1",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
+    "uuid": "^3.2.1",
+    "winston": "^2.4.0"
+  },
+  "devDependencies": {
+    "debug": "^3.1.0"
+  }
+}

@@ -10,7 +10,7 @@
 
 <body>
     <div class="container-fluid">
-        <h1>List</h1>
+    	<h2>List</h2>
         <table class="border border-secondary">
             <thead>
                 <tr class="border border-secondary">
@@ -26,11 +26,11 @@
                 {{#each list}}
                 <tr class="border border-secondary">
                     <td class="border border-secondary">{{rank}}</td>
-                    <td class="border border-secondary">{{symbol}} - {{name}}</td>
+                    <td class="border border-secondary align-left"><span class="badge">{{symbol}}</span> {{name}}</td>
                     <td class="border border-secondary">{{market_cap_usd}}$</td>
                     <td class="border border-secondary">{{price_usd}}$</td>
                     <td class="border border-secondary">{{price_btc}} BTC</td>
-                    <td class="border border-secondary">{{percent_change_1h}}</td>
+                    <td class="border border-secondary">{{percent_change_1h}}%</td>
                 </tr>
                 {{/each}}
             </tbody>

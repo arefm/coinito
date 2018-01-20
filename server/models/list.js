@@ -4,7 +4,9 @@
 
 'use strict'
 
-import request from 'request'
+import { Logger, Fetch } from 'coinitoapp'
+
+const log = new Logger('list')
 
 class ListHandler {
 
@@ -22,24 +24,15 @@ class ListHandler {
     }
 
     FetchList(req, reply, next) {
-    	this.__Fetch({ url: 'https://api.coinmarketcap.com/v1/ticker/?limit=10' })
+        let Request = new Fetch({
+            url: 'https://api.coinmarketcap.com/v1/ticker/?limit=10'
+        })
+        Request.send()
     		.then(data => {
     			this.Storage.list = data
     			next()
     		})
     		.catch(err => next(err))
-    }
-
-    __Fetch(opts) {
-    	return new Promise((resolve, reject) => {
-    		request(opts, (err, resp, body) => {
-    			if (err) {
-    				reject(err)
-    				return
-    			}
-    			resolve(JSON.parse(body))
-    		})
-    	})
     }
 
 }
