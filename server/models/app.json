@@ -1,9 +1,0 @@
-{
-    "baseUrl": "/",
-    "methods": {
-    	"List": {
-	        "path": "/",
-	        "method": "get"
-    	}
-    }
-}

@@ -1,0 +1,25 @@
+td {
+	padding: 10pt;
+	text-align: center;
+}
+
+.badge {
+	color: #CCC;
+	background-color: #333;
+}
+
+.align-left {
+	text-align: left
+}
+
+.upd_def {
+	background-color: #FFF
+}
+
+.upd_inc {
+	background-color: #85CC9F
+}
+
+.upd_dec {
+	background-color: #FF6865
+}

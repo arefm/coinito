@@ -27,8 +27,10 @@ export default function(app, opts, next) {
 		for (let methodName in settings.methods) {
 			routeOpts = {}
 			let { path, method, schema, before } = settings.methods[methodName]
-			routeOpts.url = `${settings.baseUrl}${path}`
-			routeOpts.url = routeOpts.url.replace(/\/\//g, '/')
+			path = settings.baseUrl === '/' ? path : `${settings.baseUrl}${path}`
+			if (new RegExp('.+?/$', 'g').test(path))
+				path = path.substring(0, path.length - 1)
+			routeOpts.url = path.substr(1)
 			routeOpts.method = method.toUpperCase()
 			if (typeof schema !== 'undefined')
 				routeOpts.schema = schema
@@ -45,8 +47,8 @@ export default function(app, opts, next) {
 				if (beforeHandlers.length)
 					routeOpts.beforeHandler = beforeHandlers
 			}
-			// debug(routeOpts)
 			app.route(routeOpts)
+			// debug(routeOpts.method, routeOpts.url)
 		}
 	}
 	next()

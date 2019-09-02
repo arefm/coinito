@@ -1,0 +1,10 @@
+{
+    "baseUrl": "/list",
+    "methods": {
+    	"List": {
+	        "path": "/",
+	        "method": "get",
+	        "before": [ "FetchList" ]
+    	}
+    }
+}

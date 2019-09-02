@@ -17,4 +17,4 @@ const Logger = function(req, res, next) {
 	next()
 }
 
-export default Logger
+module.exports = Logger
